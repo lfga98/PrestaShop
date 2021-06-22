@@ -36,22 +36,6 @@
       <div class="card-block row">
         <div class="card-text">
           <div class="form-group row">
-            <label class="form-control-label">
-              {{ 'Display available quantities on the product page'|trans }}
-            </label>
-            <div class="col-sm">
-              {{ form_errors(pageForm.display_quantities) }}
-              {{ form_widget(pageForm.display_quantities) }}
-            </div>
-          </div>
-          <div class="form-group row">
-            {{ ps.label_with_help(('Display remaining quantities when the quantity is lower than'|trans), ('Set to "0" to disable this feature.'|trans({}, 'Admin.Shopparameters.Help'))) }}
-            <div class="col-sm">
-              {{ form_errors(pageForm.display_last_quantities) }}
-              {{ form_widget(pageForm.display_last_quantities) }}
-            </div>
-          </div>
-          <div class="form-group row">
             {{ ps.label_with_help(('Display unavailable attributes on the product page'|trans), ('If an attribute is not available in every product combination, it will not be displayed.'|trans({}, 'Admin.Shopparameters.Help'))) }}
             <div class="col-sm">
               {{ form_errors(pageForm.display_unavailable_attributes) }}
@@ -82,6 +66,24 @@
               {{ form_errors(pageForm.display_discount_price) }}
               {{ form_widget(pageForm.display_discount_price) }}
               <small class="form-text">{{ 'In the volume discounts board, display the new price with the applied discount instead of showing the discount (ie. "-5%").'|trans({}, 'Admin.Shopparameters.Help') }}</small>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label class="form-control-label">
+              {{ 'Display available quantities on the product page'|trans }}
+            </label>
+            <div class="col-sm">
+              {{ form_errors(pageForm.display_quantities) }}
+              {{ form_widget(pageForm.display_quantities) }}
+            </div>
+          </div>
+          <div class="form-group row">
+            {{ ps.label_with_help(('Display remaining quantities when the quantity is lower than'|trans), ('Set to "0" to disable this feature.'|trans({}, 'Admin.Shopparameters.Help'))) }}
+            <div class="col-sm">
+              {{ form_errors(pageForm.display_last_quantities) }}
+              {{ form_widget(pageForm.display_last_quantities) }}
             </div>
           </div>
         </div>

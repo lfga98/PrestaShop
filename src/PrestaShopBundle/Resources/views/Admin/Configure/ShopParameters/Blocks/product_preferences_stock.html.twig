@@ -36,19 +36,26 @@
       <div class="card-block row">
         <div class="card-text">
           <div class="form-group row">
-            {{ ps.label_with_help(('Allow ordering of out-of-stock products'|trans), ('By default, the "%add_to_cart_label%" button is hidden when a product is unavailable. You can choose to have it displayed in all cases.'|trans({'%add_to_cart_label%': 'Add to cart'|trans({}, 'Shop.Theme.Actions')}, 'Admin.Shopparameters.Help'))) }}
-            <div class="col-sm">
-              {{ form_errors(stockForm.allow_ordering_oos) }}
-              {{ form_widget(stockForm.allow_ordering_oos) }}
-            </div>
-          </div>
-          <div class="form-group row">
             <label class="form-control-label">
-              {{ 'Enable stock management'|trans }}
+              {{ 'Stock management'|trans }}
             </label>
             <div class="col-sm">
               {{ form_errors(stockForm.stock_management) }}
               {{ form_widget(stockForm.stock_management) }}
+            </div>
+          </div>
+          <div class="form-group row">
+            {{ ps.label_with_help(('Default pack stock management'|trans), ('When selling packs of products, how do you want your stock to be calculated?'|trans({}, 'Admin.Shopparameters.Help'))) }}
+            <div class="col-sm">
+              {{ form_errors(stockForm.pack_stock_management) }}
+              {{ form_widget(stockForm.pack_stock_management) }}
+            </div>
+          </div>
+          <div class="form-group row">
+            {{ ps.label_with_help(('Order out-of-stock products'|trans), ('By default, the "%add_to_cart_label%" button is hidden when a product is unavailable. You can choose to have it displayed in all cases.'|trans({'%add_to_cart_label%': 'Add to cart'|trans({}, 'Shop.Theme.Actions')}, 'Admin.Shopparameters.Help'))) }}
+            <div class="col-sm">
+              {{ form_errors(stockForm.allow_ordering_oos) }}
+              {{ form_widget(stockForm.allow_ordering_oos) }}
             </div>
           </div>
           <div class="form-group row">
@@ -94,13 +101,7 @@
               <small class="form-text">{{ 'Leave empty to disable'|trans }}</small>
             </div>
           </div>
-          <div class="form-group row">
-            {{ ps.label_with_help(('Default pack stock management'|trans), ('When selling packs of products, how do you want your stock to be calculated?'|trans({}, 'Admin.Shopparameters.Help'))) }}
-            <div class="col-sm">
-              {{ form_errors(stockForm.pack_stock_management) }}
-              {{ form_widget(stockForm.pack_stock_management) }}
-            </div>
-          </div>
+
           {{ form_row(stockForm.oos_show_label_listing_pages) }}
           {% block product_stock_preferences_form_rest %}
             {{ form_rest(stockForm) }}
